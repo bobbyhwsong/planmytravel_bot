@@ -17,7 +17,7 @@ args = parser.parse_args()
 # MODEL = args.MODEL
 MODEL = "gpt-4-1106-preview"
 
-TEMPLATE = "template_05"
+TEMPLATE = "template_06"
 
 
 from telegram import (
@@ -89,9 +89,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     context.user_data["agent"] = agent
     context.user_data["style"] = {
-        "emoji": False,
-        "polite": False,
-        "verbose": False,
+        "emoji": True,
+        "polite": True,
+        "verbose": True,
         "warm": False,
     }
 
@@ -136,11 +136,11 @@ async def customize(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     elif query.data == "plan":
         logger.info(query.data)
-        await query.edit_message_text(text=f"네, 알겠습니다! 이제 저와 함께 여행계획을 세워보아요{good}")
+        await query.edit_message_text(text=f"응답이 반영되었습니다! 여행을 도와드릴게요{good}")
 
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text=f"{user.first_name}님이 계획하고자 하는 여행에 대해서 알려주세요!",
+            text=f"{user.first_name}님, 지금 어디신가요?",
         )
         # without customizing
 
@@ -336,7 +336,7 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     logger.info("User %s done the conversation.", user.first_name)
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text=f"{user.first_name}님의 챗봇이 완성되었습니다!{good} 이제 저와 대화를 시작해볼까요?{party}",
+        text=f"{user.first_name}님만의 챗봇이 완성되었습니다!{good} 지금 어디신가요?{party}",
     )
     logger.info(context.user_data)
 
