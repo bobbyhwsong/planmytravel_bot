@@ -1,2 +1,4 @@
 python-dotenv
 python-telegram-bot
+openai==1.8.0
+emoji==1.6.3

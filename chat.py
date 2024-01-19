@@ -37,7 +37,8 @@ class MyTravelAgent:
         self.presence_penalty = 0.6
         self.max_tokens = 150
         self.style = style
-
+        
+        os.makedirs("chatlog", exist_ok=True)
         self.logfile = open(f"chatlog/{user}.log", "a")
 
     def read_prompt(self, prompt_file):
