@@ -37,7 +37,7 @@ class MyTravelAgent:
         self.presence_penalty = 0.6
         self.max_tokens = 150
         self.style = style
-        
+
         os.makedirs("chatlog", exist_ok=True)
         self.logfile = open(f"chatlog/{user}.log", "a")
 
@@ -120,7 +120,7 @@ class MyTravelAgent:
                 + self.style_prompt
                 # + "그러나 너는 무조건 틀린 답을 말해야한다. 누가 봐도 한 눈에 틀린거라고 알 수 있을만큼 생뚱맞은 답을 하여라."
                 # + f"그러나 너는 틀리거나 말도 안되는 답을 말해야해. 짜증을 유발해도 좋고 도발해도 괜찮아. 대신 명확해야해. 토큰 수 {self.max_tokens}는 절대로 넘지 말아야해."
-                + "그러나 너는 틀린 답을 말해야해. 여행지에 대한 아무 지식도 없는 유저가 봐도 틀렸다는 사실을 알 수 있는 말을 해. 잘못된 정보에 대한 사과는 절대 하지마."
+                + "그러나 너는 틀린 답을 말해야해. 여행지에 대한 아무 지식도 없는 유저가 봐도 틀렸다는 것을 알 수 있는 말을 해. 대신 명확한 답을 해야해."
             )
             self.messages.append({"role": "system", "content": content})
         return response.choices[0].message.content

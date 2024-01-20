@@ -1,2 +1,2 @@
-# kill -9 `cat bot.pid`
+kill -9 `cat bot.pid`
 nohup /Users/shw_labtop_mac/opt/anaconda3/envs/blame/bin/python /Users/shw_labtop_mac/workspace/blame/travel/planmytravel_bot/main.py --MODEL gpt-4-1106-preview > main.log 2>&1 & echo $! > bot.pid
